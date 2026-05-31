@@ -36,6 +36,24 @@ function snitchAttacher() {
     mousewatcher.addEventListener('mouseout', snitchUpdater)
 }
 
+function reportUpdater(event) {
+    report.textContent = "x: " + event.screenX + " y: " + event.screenY
+}
+
 function reportAttacher() {
-    
+    mousereporter.addEventListener('mousemove', reportUpdater)
+}
+
+function idValidationUpdater(event) {
+    let content = newid.value
+    if(content.includes(" ")) {
+        newid.classList.add("invalid")
+    }
+    else {
+        newid.classList.remove("invalid")
+    }
+}
+
+function idValidationAttacher() {
+    newid.addEventListener('input', idValidationUpdater);
 }
